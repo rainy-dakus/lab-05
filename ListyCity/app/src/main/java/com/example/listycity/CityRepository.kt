@@ -21,6 +21,10 @@ class CityRepository {
     fun updateCity(oldCity: City, updatedCity: City) {
         citiesRef.document(oldCity.name).set(updatedCity)
     }
+
+    fun deleteCity(city: City){
+        citiesRef.document(city.name).delete()
+    }
     private val db = Firebase.firestore
     private val citiesRef = db.collection("cities")
     init{

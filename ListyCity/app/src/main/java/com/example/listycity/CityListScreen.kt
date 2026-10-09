@@ -31,6 +31,7 @@ import com.example.listycity.ui.theme.ListyCityTheme
 fun CityListScreen(
     cities: List<City>,
     onAddCity: (City) -> Unit,
+    onDeleteCity: (City) -> Unit,
     onUpdateCity: (City, City) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -153,6 +154,24 @@ fun CityListScreen(
                 ) {
                     Text("UPDATE CITY")
                 }
+                Button(
+                    modifier = Modifier.padding(vertical = 12.dp),
+                    onClick = {
+
+                        selectedCity?.let {
+                            onDeleteCity(
+                                it
+                            )
+                        }
+
+                        selectedCity = null
+                        editedCityName = ""
+                        editedProvinceName = ""
+
+                    }
+                ) {
+                    Text("UPDATE CITY")
+                }
             }
         }
         LazyColumn(modifier = Modifier.fillMaxSize()) {
@@ -213,6 +232,7 @@ fun CityListScreenPreview() {
                 City("Calgary", "AB")
             ),
             onAddCity = {},
+            onDeleteCity = {},
             onUpdateCity = { _, _ -> }
         )
     }
