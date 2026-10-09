@@ -154,8 +154,13 @@ fun CityListScreen(
                 ) {
                     Text("UPDATE CITY")
                 }
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp)) {
                 Button(
-                    modifier = Modifier.padding(vertical = 12.dp),
+                    modifier = Modifier.padding(vertical = 8.dp),
                     onClick = {
 
                         selectedCity?.let {
@@ -170,7 +175,7 @@ fun CityListScreen(
 
                     }
                 ) {
-                    Text("UPDATE CITY")
+                    Text("REMOVE CITY")
                 }
             }
         }
